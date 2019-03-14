@@ -1,0 +1,93 @@
+{
+    "code": 0,
+    "msg": "",
+    "count": 1000,
+    "data": [{
+        "book_name": "宫西达也勇气绘本（平装全6册）",
+        "author": "宫西达也",
+        "publishing_house": "青岛出版社",
+        "total": 36117,
+        "y_seq": [{
+                "year": "2016",
+                "seq": "491",
+                "content": "36117"
+            },
+            {
+                "year": "2017",
+                "seq": "383",
+                "content": "36117"
+            },
+            {
+                "year": "2018",
+                "seq": "396",
+                "content": "36117"
+            }
+        ]
+    },{
+        "book_name": "第二本书",
+        "author": "宫西达也",
+        "publishing_house": "青岛出版社",
+        "total": 36117,
+        "y_seq": [
+            {
+                "year": "2016",
+                "seq": "100",
+                "content": "36117"
+            },
+            {
+                "year": "2017",
+                "seq": "200",
+                "content": "36117"
+            },
+            {
+                "year": "2018",
+                "seq": "300",
+                "content": "36117"
+            }
+        ]
+    },{
+        "book_name": "第三本书",
+        "author": "宫西达也",
+        "publishing_house": "青岛出版社",
+        "total": 36117,
+        "y_seq": [
+            {
+                "year": "2016",
+                "seq": "491",
+                "content": "36117"
+            },
+            {
+                "year": "2017",
+                "seq": "383",
+                "content": "36117"
+            },
+            {
+                "year": "2018",
+                "seq": "396",
+                "content": "36117"
+            }
+        ]
+    },{
+        "book_name": "第四本书",
+        "author": "宫西达也",
+        "publishing_house": "青岛出版社",
+        "total": 36117,
+        "y_seq": [
+            {
+                "year": "2016",
+                "seq": "491",
+                "content": "36117"
+            },
+            {
+                "year": "2017",
+                "seq": "383",
+                "content": "36117"
+            },
+            {
+                "year": "2018",
+                "seq": "396",
+                "content": "36117"
+            }
+        ]
+    }]
+}

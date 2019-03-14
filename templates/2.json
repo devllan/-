@@ -1,0 +1,26 @@
+{
+    "suc_id": 1,
+    "ret_cd": 200,
+    "ret_ts": 1552448406,
+    "errorMsg": "",
+    "successResult": [{
+        "book_name": "世界上最酷最酷的科学书（大字版，全19册）",
+        "author": "丹·格林",
+        "publishing_house": "湖南少年儿童出版社",
+        "total": 3962.6666666666665,
+        "y_seq": {
+            "year_2016": {
+                "seq": 399,
+                "content": "5944"
+            },
+            "year_2017": {
+                "seq": 411,
+                "content": "5944"
+            },
+            "year_2018": {
+                "seq": 457,
+                "content": "5944"
+            }
+        }
+    }]
+}

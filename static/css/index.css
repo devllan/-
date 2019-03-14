@@ -1,0 +1,59 @@
+body{
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/bg3.jpg);
+    background-size: cover;
+}
+
+#all{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    
+}
+#pack{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background:rgba(255,255,255,0.3);
+}
+#book{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    display: block;
+    width: 300px;
+    height: 100px;
+    background-color: #78B15C;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.4s;
+    color: white;
+    font-size: 20px;
+    line-height: 100px;
+    text-align: center;
+}
+#book:hover{
+    transform: scale(1.2);
+}
+#book2{
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+    display: block;
+    width: 300px;
+    height: 100px;
+    background-color: #E8AD5A;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.4s;
+    color: white;
+    font-size: 20px;
+    line-height: 100px;
+    text-align: center;
+}
+#book2:hover{
+    transform: scale(1.2);
+}
