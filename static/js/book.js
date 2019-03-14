@@ -53,48 +53,49 @@ layui.use('table', function () {
     // headers: {pageName: 'page',limitName: 'limit'},
     // where:{pageName,limitName},
     url: url,
-    parseData: function(res){ //res 即为原始返回的数据
+    parseData: function (res) { //res 即为原始返回的数据
       return {
         "code": 0, //解析接口状态
         "msg": res.errorMsg, //解析提示文本
-        "count": 50, //解析数据长度
+        "count": res.counts, //解析数据长度
         "data": res.successResult //解析数据列表
       };
     },
     cols: [
       [{
         field: 'book_name',
-        width: 300,
+        width: '30%',
         title: '书名',
       }, {
         field: 'author',
-        width: 300,
+        width: '30%',
         title: '作者'
       }, {
         field: 'publishing_house',
-        width: 300,
+        width: '30%',
         title: '出版社',
-      }, 
-    ]
+      }, ]
     ],
     limit: 50,
     page: true,
-    height: 650,
-    width: 860,
+    height: 500,
+    // width: 860,
     // totalRow:true,
     limits: [50]
   });
   table.on('row(test)', function (obj) {
     console.log(obj.tr) //得到当前行元素对象
     console.log(obj.data) //得到当前行数据
+    // var data = obj.data;
     var Data = obj.data.id;
     console.log(Data);
-    
     $.ajax({
-      url: '/book/book_ranking/?' + obj.data.id,
+      // url: './2.json?' + obj.data.id,
+      url: '/book/book_ranking/?' + 'id=' +obj.data.id,
       type: "post",
       data: '',
       success: function (info) {
+        console.log(obj.data.id)
         console.log(info);
         year = [];
         seq = [];
@@ -111,6 +112,11 @@ layui.use('table', function () {
           msContentScript.push(Data[i].y_seq.year_2017.content);
           msContentScript.push(Data[i].y_seq.year_2018.content);
           console.log(seq);
+          zong = Data[i].total;
+          console.log(zong)
+          window.sessionStorage.setItem("book_name", Data[i].book_name);
+          window.sessionStorage.setItem("author", Data[i].author);
+          window.sessionStorage.setItem("publishing_house", Data[i].publishing_house);
           // for (var j = 0; j < Data[i].y_seq.length; j++) {
           //   year.push(Data[i].y_seq[j].year);
           //   seq.push(Data[i].y_seq[j].seq);
@@ -118,122 +124,28 @@ layui.use('table', function () {
           //   console.log(Data[i].y_seq[j])
           // }
         }
-        for (var i = 0; i < seq.length; i++) {
-          zong = zong + Number(seq[i]);
-          console.log(seq[i]);
+        window.sessionStorage.setItem("seq0", seq[0]);
+        window.sessionStorage.setItem("seq1", seq[1]);
+        window.sessionStorage.setItem("seq2", seq[2]);
+        window.sessionStorage.setItem("msContentScript0", msContentScript[0]);
+        window.sessionStorage.setItem("msContentScript1", msContentScript[1]);
+        window.sessionStorage.setItem("msContentScript2", msContentScript[2]);
+        window.sessionStorage.setItem("zong", zong);
+        console.log(window.sessionStorage.getItem("seq"));
+        console.log(window.sessionStorage.getItem("msContentScript"));
+        window.location = '/book/book_details/'
+        // for (var i = 0; i < seq.length; i++) {
+        //   zong = zong + Number(seq[i]);
+        //   console.log(seq[i]);
 
-          console.log(zong);
-        }
-        zong = Number(zong) / seq.length;
-        console.log(zong)
+        //   console.log(zong);
+        // }
+
         // console.log(year);
         // console.log(seq);
         // console.log(msContentScript);
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main'));
 
-        // 指定图表的配置项和数据
-        option = {
-          title: {
-            text: '排名变化'
-          },
-          tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-              type: 'cross',
-              label: {
-                backgroundColor: '#6a7985'
-              }
-            }
-          },
-          legend: {
-            data: ['排名']
-          },
-          toolbox: {
-            feature: {
-              saveAsImage: {}
-            }
-          },
-          grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-          },
-          xAxis: [{
-            type: 'category',
-            boundaryGap: false,
-            data: ['2016', '2017', '2018', '总排名']
-          }],
-          yAxis: [{
-            type: 'value'
-          }],
-          series: [{
-            name: '排名变化',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [seq[0], seq[1], seq[2], ]
-          }, {
-            name: '总排名',
-            type: 'bar',
-            data: [, , , zong]
-          }]
-        };
-
-
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-
-
-        var myChart2 = echarts.init(document.getElementById('main2'));
-
-        // 指定图表的配置项和数据
-        option2 = {
-          title: {
-            text: '评论变化'
-          },
-          tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-              type: 'cross',
-              label: {
-                backgroundColor: '#6a7985'
-              }
-            }
-          },
-          legend: {
-            data: ['评论数']
-          },
-          toolbox: {
-            feature: {
-              saveAsImage: {}
-            }
-          },
-          grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-          },
-          xAxis: [{
-            type: 'category',
-            boundaryGap: false,
-            data: ['2016', '2017', '2018']
-          }],
-          yAxis: [{
-            type: 'value'
-          }],
-          series: [{
-            name: '评论数',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [msContentScript[0], msContentScript[1], msContentScript[2], ]
-          }]
-        };
-        // 使用刚指定的配置项和数据显示图表。
-        myChart2.setOption(option2);
       }
     });
     //obj.del(); //删除当前行

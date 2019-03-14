@@ -11,6 +11,19 @@ var msContentScript2 = window.sessionStorage.getItem("msContentScript2");
 var zong = window.sessionStorage.getItem("zong");
 // console.log(seq)
 
+console.log(window.sessionStorage.getItem("book_name"));
+console.log(window.sessionStorage.getItem("author"));
+console.log(window.sessionStorage.getItem("publishing_house"));
+
+var span1 = document.getElementById('span1');
+var span2 = document.getElementById('span2');
+var span3 = document.getElementById('span3');
+
+span1.innerText = '书名：' + window.sessionStorage.getItem("book_name");
+span2.innerText = '作者：' + window.sessionStorage.getItem("author");
+span3.innerText = '出版社：' + window.sessionStorage.getItem("publishing_house");
+
+
 
 var myChart = echarts.init(document.getElementById('main'));
 
@@ -45,7 +58,7 @@ option = {
     xAxis: [{
         type: 'category',
         boundaryGap: false,
-        data: ['2016', '2017', '2018', '总排名']
+        data: ['2016', '2017', '2018', ]
     }],
     yAxis: [{
         type: 'value'
@@ -56,11 +69,7 @@ option = {
         stack: '总量',
         areaStyle: {},
         data: [seq0, seq1, seq2, ]
-    }, {
-        name: '总排名',
-        type: 'bar',
-        data: [, , , zong]
-    }]
+    }, ]
 };
 
 
