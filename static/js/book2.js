@@ -61,7 +61,9 @@ option = {
         data: ['2016', '2017', '2018', ]
     }],
     yAxis: [{
-        type: 'value'
+        type: 'value',
+        // max: 500,
+        inverse: true,
     }],
     series: [{
         name: '排名变化',
@@ -113,7 +115,11 @@ option2 = {
         data: ['2016', '2017', '2018']
     }],
     yAxis: [{
-        type: 'value'
+        type: 'value',
+        // min:0,
+        
+        // mininterval:3
+        // splitNumber:3
     }],
     series: [{
         name: '评论数',

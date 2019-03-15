@@ -5,20 +5,21 @@
     /* left: 100px;
     top: 150px; */
     text-align: center;
-    
+    /* background-color: rgba(204,204,204,0.9); */
 }
 
 #header a {
     display: inline-block;
-    box-sizing: content-box;
+    box-sizing: border-box;
     border: 1px solid #ccc;
-    height: 30px;
+    height: 100px;
     margin-top: 25px;
-    line-height: 30px;
+    line-height: 100px;
     text-align: center;
     float: left;
-    width: 24.8%;
+    width: 25%;
     font-size: 18px;
+    margin-top: 0px;
     /* margin: 0 auto; */
 }
 
@@ -34,6 +35,7 @@
 #top {
     height: 50px;
     border-bottom: 1px solid #ccc;
+    
 }
 
 #top a {
@@ -50,7 +52,7 @@
     border-right: 1px solid #ccc;
 }
 #top a:hover {
-    background-color: #ccc;
+    /* background-color: #ccc; */
 
 }
 
@@ -67,4 +69,24 @@
 }
 .layui-table{
     width: 100%!important;
+}
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/bg33.jpg);
+    background-size: cover;
+    /* background:rgba(255,255,255,0.3); */
+}
+#top {
+    background-color: rgba(204,204,204,0.9);
+    /* background-color: #ccc; */
+}
+#top:hover{
+    
+}
+#header a{
+    background-color: rgba(204,204,204,0.9)
+}
+#commit{
+    background-color: rgba(204,204,204,0.9);
 }
